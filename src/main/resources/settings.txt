@@ -1,0 +1,24 @@
+/************************* JAVAFX *************************************/
+Step 1: Download http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-arm32-vfp-hflt.gz
+Step 2: sudo tar zxvf jdk-8u73-linux-arm32-vfp-hflt.gz -C /opt ->installs in /opt
+Step 3: sudo update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_73/bin/javac 1
+Step 4 :sudo update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_73/bin/java 1
+Step 5: sudo update-alternatives --config javac
+Step 6: sudo update-alternatives --config java
+
+Step 7: download http://108.61.191.178/downloads/openjfx-8u40-sdk-overlay-linux-armv6hf.zip
+Step 8: sudo unzip openjfx-8u40-sdk-overlay-linux-armv6hf.zip -d /opt/jdk1.8.0_73
+
+/***** boot config ****/
+/boot/config.txt disable-overscan
+enable_uart=1
+gpu_mem=512
+
+
+/******************* AUTOBOOT ****************************************/
+Try using this command to ensure your script is added to the boot sequence:
+
+sudo update-rc.d /etc/init.d/nameofscript.sh defaults
+Note that you can make a script executable using the +x option with chmod:
+
+chmod +x /etc/init.d/nameofscript.sh
