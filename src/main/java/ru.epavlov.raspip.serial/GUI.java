@@ -46,9 +46,7 @@ public class GUI extends Application {
                 status.setLayoutY(107);
                 status.setFill(Color.rgb(254,59,0));
                 status.setText(s1);
-
                 status.setFont(Font.loadFont(fontPath,20));
-                //status.setFont(Font.loadFont(fontPath,20));
                 Pane pane =new BorderPane();
                 pane.getChildren().addAll(status);
                 group.setTop(pane);
@@ -71,7 +69,6 @@ public class GUI extends Application {
                     text.setLayoutX(650);
                     text.setLayoutY(200);
                     text.setFont(Font.loadFont(fontPath,30));
-                    //text.setFont(Font.loadFont(fontPath, 30));
                     text.setFill(Color.RED);
                     Pane pane = new BorderPane();
                     pane.getChildren().addAll(text);
@@ -83,7 +80,7 @@ public class GUI extends Application {
             Platform.runLater(()->{
                 Text text =new Text(s);
                 text.setLayoutX(73);
-                text.setLayoutY(-550);
+                text.setLayoutY(-750);//
                 text.setFont(Font.loadFont(fontPath,20));
                 //text.setFont(Font.loadFont(fontPath, 20)); //101,201,139
                 text.setFill(Color.rgb(101,201,139));
