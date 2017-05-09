@@ -65,6 +65,7 @@ public class Presenter  implements Reader.ReaderListener{
     }
     public void accept(){
         try {
+            cnt++;
             centerImage.onNext(new ImageView(Images.getImage("right.png")));
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -110,26 +111,23 @@ public class Presenter  implements Reader.ReaderListener{
             accept();
             centerImage.onNext(new ImageView(Images.getImage("y.png")));
             coords.onNext("координата х: "+resources.getX());
-            cnt++;
-        } else
+            return;
+        }
         if (command.equals(resources.getY().trim()) && cnt == 1) {
             sendArduino(20);
             accept();
             centerImage.onNext(new ImageView(Images.getImage("z.png")));
             coords.onNext(coords.getValue()+"\nкоордината y: "+resources.getY());
-            cnt++;
-        } else
+            return;
+        }
         if (command.equals(resources.getZ().trim()) && cnt == 2) {
             sendArduino(30);
             accept();
             coords.onNext(coords.getValue()+"\nкоордината z: "+resources.getZ());
             centerImage.onNext(new ImageView(Images.getImage("take_sit.png")));
-            //status.onNext(new ImageView(Images.getImage("status_teleport_new.png")));
-            cnt++;
-        } else {
-            decline();
+            return;
         }
-
+        decline();
         log.warn(TAG+"parseCommand()::"+command);
     }
 
