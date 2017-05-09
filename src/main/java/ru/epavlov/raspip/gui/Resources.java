@@ -23,9 +23,9 @@ public class Resources {
             JsonParser parser = new JsonParser();
             String file = new String(Files.readAllBytes(new File(path).toPath()));
             JsonObject json =  parser.parse(file).getAsJsonObject();
-            x= json.get("x").getAsString();
-            y= json.get("y").getAsString();
-            z= json.get("z").getAsString();
+            x= json.get("x").getAsString().trim();
+            y= json.get("y").getAsString().trim();
+            z= json.get("z").getAsString().trim();
             debug = json.get("debug").getAsBoolean();
         } catch (IOException e) {
             e.printStackTrace();
